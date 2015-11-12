@@ -1,3 +1,4 @@
 beautifulsoup4==4.4.1
 lxml==3.4.4
 twilio==4.9.0
+Pillow=3.0.0

@@ -1,3 +1,5 @@
+# coding: utf-8 
+
 import hsdb
 import hsurl
 
@@ -17,6 +19,6 @@ def run(sc=None):
 			if torrent and len(torrent) == 4:
 				hsurl.download_torrent(torrent)
 			else:
-				print "Nothing to do"
+				print manga[0] + " : pas de nouvel episode"
 	if (sc != None):
 		sc.enter(60, 1, run, (sc,))
