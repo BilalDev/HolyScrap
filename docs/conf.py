@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # src documentation build configuration file, created by
-# sphinx-quickstart on Thu Nov 12 12:53:31 2015.
+# sphinx-quickstart on Thu Nov 12 13:17:58 2015.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -51,8 +51,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'src'
-copyright = u'2015, Author'
-author = u'Author'
+copyright = u'2015, HolyScrap'
+author = u'HolyScrap'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -227,7 +227,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   (master_doc, 'src.tex', u'src Documentation',
-   u'Author', 'manual'),
+   u'HolyScrap', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

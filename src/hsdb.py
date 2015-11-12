@@ -1,11 +1,6 @@
 import sqlite3
 from twilio.rest import TwilioRestClient
 
-def get_sqlite_connexion():
-    """This function return the sqlite connection"""
-    return sqlite3.connect('holyscrap.db')
-
-
 def add_anime(name, id):
     """This function add an anime to the database and print weither it works or not
 
@@ -45,6 +40,44 @@ def delete_anime(name):
         print name + " n'a pas pu etre supprime"
 
 
+def get_animes():
+    """This function returns all the animes in the database
+
+    :returns: A tuple of animes
+    """
+    conn = get_sqlite_connexion()
+    c = conn.cursor()
+    animes = c.execute("SELECT * FROM anime order by name").fetchall()
+    conn.close()
+    return animes
+
+
+def get_animes_for_print():
+    """This function prints all the animes in the database"""
+    conn = get_sqlite_connexion()
+    c = conn.cursor()
+    for row in c.execute("SELECT * FROM anime order by name"):
+        print row
+
+    conn.close()
+
+
+def get_sqlite_connexion():
+    """This function return the sqlite connection"""
+    return sqlite3.connect('holyscrap.db')
+
+
+def init_sql():
+    """This function intialize the database"""
+    conn = get_sqlite_connexion()
+    c = conn.cursor()
+
+    c.execute("CREATE TABLE IF NOT EXISTS anime (name str PRIMARY KEY, id INTEGER)")
+
+    conn.commit()
+    conn.close()
+
+
 def update_anime(uName, uId):
     """This function update an anime print a message and send an SMS
 
@@ -73,37 +106,3 @@ def update_anime(uName, uId):
         conn.commit()
         conn.close()
         print "Episode " + id_print + " de " + uName + " n'a pas pu etre update"
-
-
-def get_animes():
-    """This function returns all the animes in the database
-
-    :returns: A tuple of animes
-    """
-    conn = get_sqlite_connexion()
-    c = conn.cursor()
-    animes = c.execute("SELECT * FROM anime order by name").fetchall()
-    conn.close()
-    return animes
-
-
-def get_animes_for_print():
-    """This function prints all the animes in the database"""
-    conn = get_sqlite_connexion()
-    c = conn.cursor()
-    for row in c.execute("SELECT * FROM anime order by name"):
-        print row
-
-    conn.close()
-
-
-
-def init_sql():
-    """This function intialize the database"""
-    conn = get_sqlite_connexion()
-    c = conn.cursor()
-
-    c.execute("CREATE TABLE IF NOT EXISTS anime (name str PRIMARY KEY, id INTEGER)")
-
-    conn.commit()
-    conn.close()
