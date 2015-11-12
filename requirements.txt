@@ -1,0 +1,3 @@
+pip install beautifulsoup4==4.4.1
+pip install lxml==3.4.4
+pip install twilio==4.9.0
