@@ -2,10 +2,16 @@ import sqlite3
 from twilio.rest import TwilioRestClient
 
 def get_sqlite_connexion():
+    """This function return the sqlite connection"""
     return sqlite3.connect('holyscrap.db')
 
 
 def add_anime(name, id):
+    """This function add an anime to the database and print weither it works or not
+
+    :param name: Name of the anime to be added
+    :param id: Episod number
+    """
     conn = get_sqlite_connexion()
     c = conn.cursor()
 
@@ -21,6 +27,10 @@ def add_anime(name, id):
 
 
 def delete_anime(name):
+    """This function delete an anime and print weither it works or not
+
+    :param name: Name of the anime to be deleted
+    """
     conn = get_sqlite_connexion()
     c = conn.cursor()
 
@@ -36,6 +46,11 @@ def delete_anime(name):
 
 
 def update_anime(uName, uId):
+    """This function update an anime print a message and send an SMS
+
+    :param uName: Name of the anime to be updated
+    :param uId: Episod number to be updated
+    """
     conn = get_sqlite_connexion()
     c = conn.cursor()
 
@@ -60,17 +75,11 @@ def update_anime(uName, uId):
         print "Episode " + id_print + " de " + uName + " n'a pas pu etre update"
 
 
-def get_anime_from_name(name):
-    conn = get_sqlite_connexion()
-    c = conn.cursor()
-
-    for row in c.execute("SELECT * FROM anime WHERE name = ?", (name,)):
-        print row
-
-    conn.close()
-
-
 def get_animes():
+    """This function returns all the animes in the database
+
+    :returns: A tuple of animes
+    """
     conn = get_sqlite_connexion()
     c = conn.cursor()
     animes = c.execute("SELECT * FROM anime order by name").fetchall()
@@ -79,6 +88,7 @@ def get_animes():
 
 
 def get_animes_for_print():
+    """This function prints all the animes in the database"""
     conn = get_sqlite_connexion()
     c = conn.cursor()
     for row in c.execute("SELECT * FROM anime order by name"):
@@ -89,6 +99,7 @@ def get_animes_for_print():
 
 
 def init_sql():
+    """This function intialize the database"""
     conn = get_sqlite_connexion()
     c = conn.cursor()
 
