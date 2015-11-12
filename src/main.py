@@ -5,7 +5,7 @@ import hsdb, hshelper, hsrun
 import sched, time
 import gui.MainApplication as MainApplication
 import Tkinter as tk
-from PIL import Image, ImageTk
+# from PIL import Image, ImageTk
 
 
 # window = tk.Tk()
