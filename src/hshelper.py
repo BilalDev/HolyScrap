@@ -2,7 +2,7 @@ from string import maketrans
 
 
 def replace_special_chars(str_to_translate):
-	"""This function replace all special characters with underscore
+	"""This function replaces all special characters with underscore
 
 	:param str_to_translate: String containing special characters
 	:returns: Well formatted string

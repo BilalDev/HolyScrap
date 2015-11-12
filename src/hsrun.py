@@ -1,7 +1,6 @@
 import hsdb
 import hsurl
 
-import threading
 
 def run(sc=None):
 	"""This function starts the processus of downloading animes

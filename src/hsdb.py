@@ -1,8 +1,9 @@
 import sqlite3
 from twilio.rest import TwilioRestClient
 
+
 def add_anime(name, id):
-    """This function add an anime to the database and print weither it works or not
+    """This function adds an anime to the database and print weither it works or not
 
     :param name: Name of the anime to be added
     :param id: Episod number
@@ -22,7 +23,7 @@ def add_anime(name, id):
 
 
 def delete_anime(name):
-    """This function delete an anime and print weither it works or not
+    """This function deletes an anime and print weither it works or not
 
     :param name: Name of the anime to be deleted
     """
@@ -63,12 +64,15 @@ def get_animes_for_print():
 
 
 def get_sqlite_connexion():
-    """This function return the sqlite connection"""
+    """This function returns the sqlite connection
+
+    :returns: The connetion with the database
+    """
     return sqlite3.connect('holyscrap.db')
 
 
 def init_sql():
-    """This function intialize the database"""
+    """This function intializes the database"""
     conn = get_sqlite_connexion()
     c = conn.cursor()
 
@@ -79,7 +83,7 @@ def init_sql():
 
 
 def update_anime(uName, uId):
-    """This function update an anime print a message and send an SMS
+    """This function updates an anime print a message and send an SMS
 
     :param uName: Name of the anime to be updated
     :param uId: Episod number to be updated
