@@ -18,7 +18,11 @@ def run(thread):
 				else:
 					print manga[0] + " : pas de nouvel episode"
 
-	if (thread.stopped() == False):
-		sleep(3600)
-		run(thread)
+	for i in range(3600):
+		if (thread.stopped() == False):
+			sleep(1)
+		else:
+			return
+
+	run(thread)
 

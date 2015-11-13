@@ -14,6 +14,7 @@ class MainApplication(tk.Tk):
 		tk.Tk.__init__(self)
 		# Window maximized
 		self.winfo_toplevel().wm_state('zoomed')
+		self.title('HolyScrap')
 
 		self.create_canvas()
 
