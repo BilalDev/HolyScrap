@@ -63,15 +63,18 @@ def search_result(html, query):
 				findNumberAndVostfr = True
 			except:
 				pass
+
 			if findNumberAndVostfr:
 				# find name in lower case in the name
 				try:
 					find_name = name.index(name_lower)
-					return [name, href, query[0], query[1]]
+					if find_numero_episode - (find_name + len(name_lower)) == 1:
+						return [name, href, query[0], query[1]]
 				# find name in lower with underscore instead of space in the name
 				except ValueError as ve:
 					find_name = name.index(name_lower_underscore)
-					return [name, href, query[0], query[1]]
+					if find_numero_episode - (find_name + len(name_lower_underscore)) == 1:
+						return [name, href, query[0], query[1]]
 				# doesn't find, pass to the next
 				except:
 					pass
